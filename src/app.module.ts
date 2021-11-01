@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { __prod__ } from './constants/system.constant'
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { AppService } from './app.service'
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.DB,
       entities: [],
-      synchronize: true,
+      synchronize: !__prod__,
     }),
   ],
   controllers: [AppController],
