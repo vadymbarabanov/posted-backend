@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
@@ -7,7 +8,7 @@ import {
 } from 'typeorm'
 
 @Entity()
-export class Users {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
@@ -17,7 +18,7 @@ export class Users {
   @Column({ unique: true, length: 254 })
   email: string
 
-  @Column()
+  @Column({ length: 254 })
   password: string
 
   @CreateDateColumn()
