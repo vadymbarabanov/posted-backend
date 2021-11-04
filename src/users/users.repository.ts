@@ -4,6 +4,10 @@ import { User } from './entities/user.entity'
 
 @Injectable()
 export class UsersRepository {
+  async find() {
+    return await User.find()
+  }
+
   async findById(id: string) {
     return await User.findOne(id)
   }
